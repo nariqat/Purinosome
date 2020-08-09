@@ -35,6 +35,7 @@ classdef PduParams_MCP < PduParams &  matlab.mixin.SetGet
         % contained which depends on the situation (in MCP or cytosol).
         VCDE    % uM/s PduCDE max reaction rate/concentration
         VPQ     % maximum rate of aldehyde consumption by PduP/PduQ
+        Vq
     end
     
     methods
@@ -48,6 +49,9 @@ classdef PduParams_MCP < PduParams &  matlab.mixin.SetGet
         end
         function value = get.VPQ(obj)
             value = obj.VPQMCP;
+        end
+        function value = get.Vq(obj)
+            value = obj.VqMCP;
         end
         
         function value = get.xi(obj)

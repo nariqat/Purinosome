@@ -50,11 +50,13 @@ classdef PduParams< matlab.mixin.SetGet
         % co-localized to the MCP.
         VCDEMCP    % uM/s PduCDE max reaction rate/concentration
         VPQMCP     % uM/s maximum rate of aldehyde consumption by PduP/PduQ
+        VqMCP
         
         % Dependent paramters for the case that PduCDE & PduP/Q are uniformly 
         % distributed through the cytoplasm.
         VCDECell    % uM/s PduCDE max reaction rate/concentration
         VPQCell     % uM/s maximum rate of aldehyde consumption by PduP/PduQ
+        VqCell
 
     end
     
@@ -75,6 +77,7 @@ classdef PduParams< matlab.mixin.SetGet
         % contained which depends on the situation (in MCP or not).
         VCDE    % uM/s PduCDE max reaction rate/concentration
         VPQ     % maximum rate of aldehyde consumption by PduP/PduQ
+        Vq
     end
     
     methods
@@ -96,12 +99,18 @@ classdef PduParams< matlab.mixin.SetGet
         function value = get.VPQMCP(obj)
             value = obj.kcatPQ * obj.NPQ*1e6/(obj.VMCP * obj.Na * 1e-3);
         end
+        function value = get.VqMCP(obj)
+            value = obj.q / (obj.VMCP * 1e-3);
+        end
    
         function value = get.VCDECell(obj)
             value = obj.kcatCDE * obj.NCDE*1e6/(obj.Vcell * obj.Na * 1e-3);
         end
         function value = get.VPQCell(obj)
             value = obj.kcatPQ * obj.NPQ*1e6/(obj.Vcell * obj.Na * 1e-3);
+        end
+        function value = get.VqCell(obj)
+            value = obj.q / (obj.Vcell * 1e-3);
         end
         
 

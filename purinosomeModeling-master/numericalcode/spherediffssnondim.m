@@ -21,7 +21,7 @@ a = y(2:2:xnum*2)';
 beta = param.xi/(dx^2); % grouping of parameters
 RPQ = a(1)/(1 + a(1)); %non-dimensional PduP/PduQ reaction
 RCDE = p(1)/(1 + p(1)); % non-dimensional PduCDE reaction (changed)
-dp(1) = beta*((3*(x(1)+x(2))/2)^(4/3))*(p(2)-p(1)) - 1/param.kappa*(RCDE - (param.q/(param.VMCP*10^-3))/param.VCDE); % change in 1,2-PD
+dp(1) = beta*((3*(x(1)+x(2))/2)^(4/3))*(p(2)-p(1)) - 1/param.kappa*(RCDE - param.Vq/param.VCDE); % change in 1,2-PD
 da(1) = beta*((3*(x(1)+x(2))/2)^(4/3))*(a(2)-a(1)) + RCDE - param.gamma*RPQ; % change in propanal
 
 % inside MCP
@@ -31,7 +31,7 @@ for i = 2:xnum-1
     xhm = (3*(x(i)+x(i-1))/2)^(4/3);
     RPQ = a(i)/(1 + a(i)); %non-dimensional PduP/PduQ reaction
     RCDE = p(i)/(1 + p(i)); % non-dimensional PduCDE reaction (changed)
-    dp(i) = beta*(xhp*(p(i+1)-p(i))-xhm*(p(i)-p(i-1)))- 1/param.kappa*(RCDE - (param.q/(param.VMCP*10^-3))/param.VCDE); %change in 1,2-PD
+    dp(i) = beta*(xhp*(p(i+1)-p(i))-xhm*(p(i)-p(i-1)))- 1/param.kappa*(RCDE - param.Vq/param.VCDE); %change in 1,2-PD
     da(i) = beta*(xhp*(a(i+1)-a(i))-xhm*(a(i)-a(i-1)))+ RCDE - param.gamma*RPQ; %change in propanal
 end
 

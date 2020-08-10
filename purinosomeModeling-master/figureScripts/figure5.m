@@ -14,4 +14,4 @@ sweep_paramsX2('kcA',-5,5,'Pout',-5,2,1,0,M,parameters);
 parameters=PduParams_MCP;
 parameters.jc=1;
 subplot(1,3,2)
-sweep_paramsX2('kcA',-5,5,'jc',-8,5,1,0,M,parameters);
+sweep_paramsX2('kcA',-5,5,'jc',-5,1,1,0,M,parameters);

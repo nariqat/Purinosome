@@ -28,7 +28,7 @@ set(gca,'XTickLabelRotation',45);
 set(gca,'FontSize',10)
 ylabel('PRPP_{cyto} (mM)')
 % line([0,5],[8 8],'LineStyle','--','Color','r','LineWidth',2)
-ylim([10^-8, 10^2])
+ylim([10^-20, 10^-2])
 xlim([0,5])
 axis square
 
@@ -42,7 +42,7 @@ set(gca,'XTickLabelRotation',45);
 set(gca,'FontSize',10)
 ylabel('PRPP_{MCP} (mM)')
 line([0,5],[p1.KPQ/1000 p1.KPQ/1000],'LineStyle','--','Color','k','LineWidth',2)
-ylim([10^-8, 10^2])
+ylim([10^-20, 10^-2])
 xlim([0,5])
 axis square
 
@@ -55,7 +55,7 @@ set(gca,'XTickLabel',{'No Purinosome','Purinosome','','Low Perm Purinosome'})
 set(gca,'XTickLabelRotation',45);
 set(gca,'FontSize',10)
 ylabel({'PPAT Flux' '(\mu mol/cell-s)'})
-ylim([0, 10^-13]) % added
+ylim([10^-20, 10^-2]) % added
 xlim([0,5])
 axis square
 
@@ -68,7 +68,7 @@ set(gca,'XTickLabel',{'No Purinosome','Purinosome','','Low Perm Purinosome'})
 set(gca,'XTickLabelRotation',45);
 set(gca,'FontSize',10)
 ylabel({'PRPP Leakage' '(\mu mol/cell-s)'})
-ylim([0, 10^-11]) % added
+ylim([10^-20, 10^-2]) % added
 xlim([0,5])
 axis square
-
+print('FIGURE 2','-djpeg','-r0')
